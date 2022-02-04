@@ -3,6 +3,9 @@
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
 
+const minimum = 1;
+const maximum = 122;
+const random = () => Math.floor(Math.random() * (maximum - minimum)) + minimum;
 
 //crear una img
 const createImageNode = () => {
@@ -10,18 +13,18 @@ const createImageNode = () => {
     const container = document.createElement('div');
     container.className = "p-4";
 
-    const imagen = document.createElement('img')
+    const imagen = document.createElement('img');
     imagen.className = "mx-auto";
     imagen.width = '320'
-    imagen.src = "https://randomfox.ca/images/2.jpg"; //TODO
+    imagen.src = `https://randomfox.ca/images/${random()}.jpg`; //TODO
 
     container.appendChild(imagen);
 
-    return imagen;
+    return container;
 };
 
 const nuevaImagen = createImageNode();
-const mountNode = document.getElementById("images")
+const mountNode = document.getElementById("images");
 
 
-mountNode.appendChild(nuevaImagen);
+mountNode.append(nuevaImagen);
