@@ -5,36 +5,43 @@
 import { registerImage } from './lazy';
 
 const minimum = 1;
-const maximum = 122;
+const maximum = 123;
 const random = () => Math.floor(Math.random() * (maximum - minimum)) + minimum;
 
 //crear una img
-const createImageNode = () => {
+const createImage = () => {
 
     const container = document.createElement('div');
-    container.className = "p-4";
+    container.className = 'p-4';
 
-    const imagen = document.createElement('img');
-    imagen.className = "mx-auto";
-    imagen.width = '320'
-    imagen.dataset.src = `https://randomfox.ca/images/${random()}.jpg`; //TODO
+    const image = document.createElement('img');
 
-    container.appendChild(imagen);
+    image.className = 'mx-auto rounded-md bg-gray-320';
+    image.width = '320'
+    image.dataset.src = `https://randomfox.ca/images/${random()}.jpg`; //TODO
+
+    container.appendChild(image);
 
     return container;
 };
 
-const nuevaImagen = createImageNode();
-const mountNode = document.getElementById("images");
+const nuevaImagen = createImage()
+const mountNode = document.getElementById('images');
 
-const addButton = document.querySelector("button");
+const addButton = document.getElementById('agregarImage');
 
 //accion
 const addImage = () => {
-    const newImage = createImageNode();
+    const newImage = createImage();
     mountNode.append(newImage);
     registerImage(newImage);
 };
 
 
-addButton.addEventListener("click", addImage);
+addButton.addEventListener('click', addImage);
+
+// button limpiar
+const clean = document.getElementById('limpiar');
+clean.addEventListener('click', () => {
+    mountNode.innerHTML = '';
+});
