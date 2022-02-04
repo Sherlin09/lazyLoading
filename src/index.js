@@ -44,4 +44,5 @@ addButton.addEventListener('click', addImage);
 const clean = document.getElementById('limpiar');
 clean.addEventListener('click', () => {
     mountNode.innerHTML = '';
+    console.clear();
 });

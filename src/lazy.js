@@ -33,4 +33,5 @@ function showData() {
     console.log(`Total Imágenes: ${allImage}`);
     console.log(`Imágenes cargadas: ${cargarImage}`);
     console.log("_____________________________");
+
 }
